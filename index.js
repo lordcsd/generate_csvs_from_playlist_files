@@ -1,6 +1,17 @@
 const fs = require("fs");
 const stringify = require("csv-stringify");
 
+const _folders = fs.readdirSync("./");
+// create playlist folder if not existent
+if (!_folders.includes("playlists")) {
+  fs.mkdirSync("playlists");
+}
+
+// create csv folder if not existent
+if (!_folders.includes("csvs")) {
+  fs.mkdirSync("csvs");
+}
+
 const json = {};
 const root = "playlists";
 const folders = fs.readdirSync(`./${root}`);
